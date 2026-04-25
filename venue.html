@@ -169,6 +169,52 @@
             margin-bottom: 10px;
         }
 
+        .section-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #eef2f8;
+            margin-bottom: 32px;
+        }
+
+        .tourist-grid,
+        .weather-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .tourist-card,
+        .weather-card {
+            background: #f8fafc;
+            border: 1px solid #e2edf7;
+            border-radius: 18px;
+            padding: 18px;
+        }
+
+        .tourist-card i,
+        .weather-card i {
+            font-size: 1.7rem;
+            color: #0e4d6e;
+            margin-bottom: 10px;
+        }
+
+        .tourist-card h4,
+        .weather-card h4 {
+            color: #0a2f44;
+            margin-bottom: 8px;
+        }
+
+        .info-note {
+            background: #eef7fc;
+            border-left: 4px solid #0e4d6e;
+            border-radius: 14px;
+            padding: 14px 16px;
+            margin-top: 16px;
+        }
+
         .accommodation-list {
             list-style: none;
             padding-left: 0;
@@ -216,7 +262,7 @@
                 <img src="images/vcim.png" alt="V-CIM Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%23ffffff\'/%3E%3Cpath fill=\'%230a2f44\' d=\'M30 30 L70 30 L70 70 L30 70 Z\'/%3E%3Ctext x=\'50\' y=\'68\' font-size=\'28\' text-anchor=\'middle\' fill=\'white\' font-weight=\'bold\'%3EVC%3C/text%3E%3C/svg%3E'">
             </div>
             <div class="site-info">
-                <div id="siteDescribe"><b>National Conference on VLSI, Communication & Intelligent Machine (V-CIM 2027)</b></div>
+                <div id="siteDescribe"><b>IEEE National Conference on VLSI, Communication & Intelligent Machine (V-CIM 2027)</b></div>
                 <div id="siteName">7-9 January 2027 | Bhubaneswar, Odisha, India | Hybrid Mode</div>
             </div>
             <div class="logoer">
@@ -232,70 +278,45 @@
             <li class="nav-item"><a href="callforpapers.html">CALL FOR PAPERS</a></li><li class="nav-div"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 20'%3E%3Crect width='1.5' height='20' fill='%23ccc'/%3E%3C/svg%3E" alt=""></li>
             <li class="nav-item"><a href="submission.html">SUBMISSION</a></li><li class="nav-div"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 20'%3E%3Crect width='1.5' height='20' fill='%23ccc'/%3E%3C/svg%3E" alt=""></li>
             <li class="nav-item"><a href="committee.html">COMMITTEES</a></li><li class="nav-div"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 20'%3E%3Crect width='1.5' height='20' fill='%23ccc'/%3E%3C/svg%3E" alt=""></li>
-            <li class="nav-item"><a href="registration.html">REGISTRATION</a></li><li class="nav-div"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 20'%3E%3Crect width='1.5' height='20' fill='%23ccc'/%3E%3C/svg%3E" alt=""></li>
+            <li class="nav-item"><a href="sponsorship.html">SPONSORSHIP</a></li><li class="nav-div"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 20'%3E%3Crect width='1.5' height='20' fill='%23ccc'/%3E%3C/svg%3E" alt=""></li>
             <li class="nav-item"><a href="venue.html" class="active">VENUE & TRAVEL</a></li><li class="nav-div"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 20'%3E%3Crect width='1.5' height='20' fill='%23ccc'/%3E%3C/svg%3E" alt=""></li>
             <li class="nav-item"><a href="publication.html">PUBLICATION</a></li><li class="nav-div"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 20'%3E%3Crect width='1.5' height='20' fill='%23ccc'/%3E%3C/svg%3E" alt=""></li>
             <li class="nav-item"><a href="contact.html">CONTACT</a></li>
         </ul>
     </div>
 </div>
-<nav class="page-tabs" aria-label="Page sections">
-        <div class="page-tabs__inner">
-            <a href="index.html">Home</a>
-            <a href="callforpapers.html">Call</a>
-            <a href="submission.html">Submit</a>
-            <a href="committee.html">Team</a>
-            <a href="registration.html">Register</a>
-            <a href="venue.html" class="active">Venue</a>
-            <a href="publication.html">Publish</a>
-            <a href="contact.html">Contact</a>
-        </div>
-</nav>
 
 
 <main class="main-content">
-    <!-- Hero Section -->
     <div class="hero-venue">
-        <h1><i class="fas fa-map-marker-alt"></i> Conference Venue</h1>
-        <p style="font-size: 1.05rem;"><strong>V-CIM 2027</strong> will be held at the prestigious <strong>Odisha University of Technology and Research (OUTR), Bhubaneswar</strong> - formerly known as College of Engineering and Technology (CET). The conference will operate in <strong>HYBRID mode</strong>, allowing both in-person and virtual participation.</p>
+        <h1><i class="fas fa-map-marker-alt"></i> Venue & Travel</h1>
+        <p style="font-size: 1.05rem;"><strong>V-CIM 2027</strong> will be hosted at <strong>Odisha University of Technology and Research (OUTR), Bhubaneswar</strong>. The conference will operate in <strong>hybrid mode</strong>, enabling both in-person and virtual participation.</p>
     </div>
 
-    <!-- Venue Grid: Info + Map -->
+    <h2 class="section-title">Venue</h2>
     <div class="venue-grid">
         <div class="venue-info">
-            <h3><i class="fas fa-university"></i> Venue Address</h3>
+            <h3><i class="fas fa-university"></i> Odisha University of Technology and Research</h3>
             <div class="venue-details">
                 <p><strong>Odisha University of Technology and Research (OUTR)</strong><br>
                 Chintamaniswari Area, Kalinga Nagar,<br>
                 Bhubaneswar, Odisha - 751029, India</p>
                 <p><i class="fas fa-phone-alt"></i> +91-674-2381234 | <i class="fas fa-envelope"></i> vcim2027@outr.ac.in</p>
             </div>
-
-            <h3><i class="fas fa-users"></i> Attendance Options</h3>
+            <p>OUTR is a leading state university located in Bhubaneswar, with academic strengths across engineering, electronics, communication, computing, and interdisciplinary research. In-person sessions, registration desk, help desk, and author interaction areas will be hosted on campus.</p>
             <div class="attendance-options">
                 <div class="option-card">
                     <i class="fas fa-user-friends"></i>
                     <h4>In-Person</h4>
-                    <p>Attend at OUTR Campus, Bhubaneswar<br>Networking & physical sessions</p>
+                    <p>Technical sessions, keynotes, networking, and campus interactions at OUTR.</p>
                 </div>
                 <div class="option-card">
                     <i class="fas fa-video"></i>
                     <h4>Virtual Mode</h4>
-                    <p>Join via Zoom/WebEx<br>Live Q&A & e-certificates</p>
+                    <p>Approved online presentations and live participation through the conference platform.</p>
                 </div>
             </div>
-
-            <h3><i class="fas fa-hotel"></i> Recommended Accommodation</h3>
-            <ul class="accommodation-list">
-                <li><span>Mayfair Convention (Luxury)</span> <span class="badge-dist">~4 km</span></li>
-                <li><span>The Crown (Business Hotel)</span> <span class="badge-dist">~3 km</span></li>
-                <li><span>Pal Heights (Mid-range)</span> <span class="badge-dist">~5 km</span></li>
-                <li><span>Hotel Sandy's Tower (Budget)</span> <span class="badge-dist">~2 km</span></li>
-                <li><span>OUTR Guest House (On-campus)</span> <span class="badge-dist">Limited rooms</span></li>
-            </ul>
-            <p class="mt-2"><small><i class="fas fa-info-circle"></i> Special conference rates available. Contact secretariat for booking assistance.</small></p>
         </div>
-
         <div class="map-container">
             <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18702.681999929036!2d85.808423!3d20.296058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909c9f6a0a0a1%3A0x9e1b2c3d4e5f6a7b!2sOdisha%20University%20of%20Technology%20and%20Research!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
@@ -305,80 +326,116 @@
         </div>
     </div>
 
-    <!-- Travel Information -->
-    <h2 class="section-title"><i class="fas fa-plane-departure"></i> How to Reach Bhubaneswar</h2>
-    <div class="travel-info">
+    <h2 class="section-title">Travel</h2>
+    <div class="section-card">
         <div class="travel-grid">
             <div class="travel-item">
                 <i class="fas fa-plane"></i>
                 <h4>By Air</h4>
-                <p><strong>Biju Patnaik International Airport (BBI)</strong><br>Located ~8 km from OUTR. Direct flights from Delhi, Mumbai, Kolkata, Chennai, Bengaluru, Hyderabad.</p>
-                <p class="mt-1"><i class="fas fa-taxi"></i> Cab fare: ~Rs.250-350</p>
+                <p><strong>Biju Patnaik International Airport (BBI)</strong> is about 8 km from OUTR. Taxi and app-based cab services are available from the airport.</p>
+                <p class="mt-1">Approx. cab fare: Rs.250-400.</p>
             </div>
             <div class="travel-item">
                 <i class="fas fa-train"></i>
                 <h4>By Railway</h4>
-                <p><strong>Bhubaneswar Railway Station (BBS)</strong><br>~6 km from OUTR. Major rail hub connecting to all Indian cities.</p>
-                <p class="mt-1"><i class="fas fa-taxi"></i> Cab/auto fare: ~Rs.150-200</p>
+                <p><strong>Bhubaneswar Railway Station (BBS)</strong> is about 6 km from OUTR and is well connected to major Indian cities.</p>
+                <p class="mt-1">Approx. cab/auto fare: Rs.150-250.</p>
             </div>
             <div class="travel-item">
                 <i class="fas fa-bus"></i>
                 <h4>By Road</h4>
-                <p><strong>Baramunda Bus Stand / Master Canteen</strong><br>Well-connected by OSRTC and private buses from all major Odisha cities and neighboring states.</p>
+                <p>Bhubaneswar is connected through NH-16 and state transport routes. Baramunda bus terminal and city bus services provide local connectivity.</p>
             </div>
-        </div>
-    </div>
-
-    <!-- Local Transport -->
-    <h2 class="section-title"><i class="fas fa-bus"></i> Local Transport & Commute</h2>
-    <div class="travel-info">
-        <div class="travel-grid">
             <div class="travel-item">
                 <i class="fas fa-taxi"></i>
-                <h4>Ola / Uber</h4>
-                <p>Available 24/7 throughout Bhubaneswar. Approx fare from airport/railway station to OUTR: Rs.200-400.</p>
-            </div>
-            <div class="travel-item">
-                <i class="fas fa-motorcycle"></i>
-                <h4>Rentals / Auto</h4>
-                <p>Mooved, Rentabike, local autos available. Auto from station: ~Rs.100-150.</p>
-            </div>
-            <div class="travel-item">
-                <i class="fas fa-bus"></i>
-                <h4>Mo Bus (City Bus)</h4>
-                <p>AC city bus service. Route #12, #25 stop near OUTR. Fare: Rs.20-50.</p>
+                <h4>Local Commute</h4>
+                <p>Ola, Uber, auto-rickshaws, local taxis, and Mo Bus services are available for commuting between hotels, venue, airport, and railway station.</p>
             </div>
         </div>
+        <div class="info-note"><strong>Travel Tip:</strong> Delegates arriving on 6 January 2027 are advised to pre-book accommodation and airport/station transfers during peak conference hours.</div>
     </div>
 
-    <!-- Tourist Attractions -->
-    <h2 class="section-title"><i class="fas fa-camera"></i> Explore Bhubaneswar - The Temple City</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
-        <div style="flex: 1; min-width: 200px; background: #f8fafc; border-radius: 20px; padding: 18px; border: 1px solid #e2edf7;">
-            <i class="fas fa-temple" style="font-size: 2rem; color: #0e4d6e;"></i>
-            <h4>Lingaraj Temple</h4>
-            <p>11th century ancient temple dedicated to Lord Shiva. ~5 km from venue.</p>
-        </div>
-        <div style="flex: 1; min-width: 200px; background: #f8fafc; border-radius: 20px; padding: 18px; border: 1px solid #e2edf7;">
-            <i class="fas fa-archway" style="font-size: 2rem; color: #0e4d6e;"></i>
-            <h4>Udayagiri & Khandagiri Caves</h4>
-            <p>Ancient Jain rock-cut caves with inscriptions. ~7 km from venue.</p>
-        </div>
-        <div style="flex: 1; min-width: 200px; background: #f8fafc; border-radius: 20px; padding: 18px; border: 1px solid #e2edf7;">
-            <i class="fas fa-water" style="font-size: 2rem; color: #0e4d6e;"></i>
-            <h4>Nandankanan Zoo</h4>
-            <p>Famous white tiger safari & botanical garden. ~15 km from venue.</p>
-        </div>
-        <div style="flex: 1; min-width: 200px; background: #f8fafc; border-radius: 20px; padding: 18px; border: 1px solid #e2edf7;">
-            <i class="fas fa-shopping-cart" style="font-size: 2rem; color: #0e4d6e;"></i>
-            <h4>Ekamra Haat</h4>
-            <p>Handicrafts market & Odisha cuisine. ~4 km from venue.</p>
-        </div>
+    <h2 class="section-title">Accommodation</h2>
+    <div class="section-card">
+        <p>Delegates may choose hotels near Jayadev Vihar, Khandagiri, Nayapalli, Patia, or the airport corridor depending on budget and travel preference. Limited university guest house accommodation may be available on request and subject to approval.</p>
+        <ul class="accommodation-list">
+            <li><span>OUTR Guest House / University Accommodation</span> <span class="badge-dist">Limited availability</span></li>
+            <li><span>Hotel Sandy's Tower / nearby budget hotels</span> <span class="badge-dist">~2-4 km</span></li>
+            <li><span>The Crown / business hotels near Nayapalli</span> <span class="badge-dist">~3-5 km</span></li>
+            <li><span>Mayfair Convention / premium hotels near Jayadev Vihar</span> <span class="badge-dist">~4-6 km</span></li>
+            <li><span>Airport-area hotels</span> <span class="badge-dist">~6-9 km</span></li>
+        </ul>
+        <div class="info-note">Participants are requested to arrange accommodation directly. The conference secretariat may share hotel suggestions and local guidance but bookings remain the participant's responsibility.</div>
     </div>
 
-    <!-- Weather Note -->
-    <div style="margin-top: 20px; margin-bottom: 40px; padding: 15px 20px; background: #eef4ff; border-radius: 16px; text-align: center;">
-        <i class="fas fa-sun" style="color: #eab308;"></i> <strong>January Weather in Bhubaneswar:</strong> Pleasant winter weather, 15 C - 28 C. Light woolens recommended for mornings/evenings.
+    <h2 class="section-title">Weather Condition During Jan 2027 in Bhubaneswar</h2>
+    <div class="section-card">
+        <p>January in Bhubaneswar is generally mild, dry, and comfortable for travel. For the V-CIM 2027 conference dates, delegates can expect typical winter conditions, with warm afternoons and cooler mornings/evenings.</p>
+        <div class="weather-grid">
+            <div class="weather-card">
+                <i class="fas fa-temperature-half"></i>
+                <h4>Temperature</h4>
+                <p>Typical January range: around 16 C at night to 28-29 C during the day.</p>
+            </div>
+            <div class="weather-card">
+                <i class="fas fa-cloud-sun"></i>
+                <h4>Sky & Rain</h4>
+                <p>Mostly clear to partly cloudy. January is one of the driest months in Bhubaneswar.</p>
+            </div>
+            <div class="weather-card">
+                <i class="fas fa-shirt"></i>
+                <h4>What to Carry</h4>
+                <p>Light cottons for daytime, a light jacket or sweater for early mornings and evenings.</p>
+            </div>
+        </div>
+        <div class="info-note">For final V-CIM 2027 travel planning, delegates should check the local forecast again in late December 2026 or early January 2027.</div>
+    </div>
+
+    <h2 class="section-title">Places of Tourist Interest in Bhubaneswar and Nearby</h2>
+    <div class="section-card">
+        <p>Bhubaneswar is known as the Temple City of India and is close to several cultural, heritage, wildlife, and coastal destinations. Delegates may plan short visits before or after the conference.</p>
+        <div class="tourist-grid">
+            <div class="tourist-card">
+                <i class="fas fa-place-of-worship"></i>
+                <h4>Lingaraj Temple</h4>
+                <p>Major heritage temple in old Bhubaneswar, about 5-7 km from OUTR.</p>
+            </div>
+            <div class="tourist-card">
+                <i class="fas fa-archway"></i>
+                <h4>Udayagiri & Khandagiri Caves</h4>
+                <p>Ancient Jain rock-cut caves and viewpoints, about 7 km from the venue.</p>
+            </div>
+            <div class="tourist-card">
+                <i class="fas fa-landmark"></i>
+                <h4>Mukteswar & Rajarani Temples</h4>
+                <p>Important examples of Odisha temple architecture in Bhubaneswar.</p>
+            </div>
+            <div class="tourist-card">
+                <i class="fas fa-tree"></i>
+                <h4>Nandankanan Zoological Park</h4>
+                <p>Zoo, botanical garden, and safari attraction about 15-18 km from OUTR.</p>
+            </div>
+            <div class="tourist-card">
+                <i class="fas fa-sun"></i>
+                <h4>Dhauli Shanti Stupa</h4>
+                <p>Peace pagoda and historic Kalinga war site, around 12-15 km from Bhubaneswar.</p>
+            </div>
+            <div class="tourist-card">
+                <i class="fas fa-water"></i>
+                <h4>Puri & Konark</h4>
+                <p>Jagannath Temple, Puri beach, and Konark Sun Temple are popular day-trip destinations.</p>
+            </div>
+            <div class="tourist-card">
+                <i class="fas fa-fish"></i>
+                <h4>Chilika Lake</h4>
+                <p>Asia's largest brackish water lagoon, suitable for a longer post-conference excursion.</p>
+            </div>
+            <div class="tourist-card">
+                <i class="fas fa-bag-shopping"></i>
+                <h4>Ekamra Haat</h4>
+                <p>Local handicrafts, handloom, and Odisha cuisine market within the city.</p>
+            </div>
+        </div>
     </div>
 </main>
 <footer class="site-footer">
@@ -410,3 +467,5 @@
 <script src="js/script.js"></script>
 </body>
 </html>
+
+
