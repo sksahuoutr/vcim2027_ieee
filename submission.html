@@ -8,194 +8,383 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- Main Stylesheet from css folder -->
+    <!-- Main Stylesheet from css folder (keep external reference) -->
     <link rel="stylesheet" href="css/style.css">
     
     <style>
-        /* Unified styling for Submission & Registration merged page */
+        :root {
+            --sr-ink: #0e2f45;
+            --sr-ink-soft: #3d5a6d;
+            --sr-primary: #0f5e88;
+            --sr-primary-dark: #0a4767;
+            --sr-accent: #d4a63a;
+            --sr-bg: #f3f8fc;
+            --sr-panel: #ffffff;
+            --sr-border: #d8e6f1;
+            --sr-shadow: 0 18px 45px -30px rgba(8, 42, 63, 0.45);
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 15% 8%, rgba(15, 94, 136, 0.08), transparent 32%),
+                radial-gradient(circle at 84% 20%, rgba(212, 166, 58, 0.12), transparent 28%),
+                var(--sr-bg);
+        }
+
         .main-content {
-            max-width: 1280px;
-            margin: 160px auto 40px;
-            padding: 0 24px;
+            width: min(1240px, 100%);
+            margin: clamp(148px, 18vh, 190px) auto 48px;
+            padding: 0 clamp(14px, 3vw, 26px);
+            color: var(--sr-ink);
         }
 
-        .hero-merged {
-            background: linear-gradient(105deg, #eef4ff 0%, #ffffff 100%);
-            border-radius: 28px;
-            padding: 2rem;
-            margin-bottom: 40px;
-            border: 1px solid #e2edf7;
-        }
-
-        .hero-merged h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #0a2f44;
-            margin-bottom: 1rem;
-        }
-
-        .deadline-badge {
-            background: #0e4d6e;
-            color: white;
-            padding: 8px 18px;
-            border-radius: 40px;
-            font-weight: 500;
-            font-size: 0.85rem;
-            display: inline-block;
-        }
-
-        .btn-primary-custom {
-            background: #0e4d6e;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 40px;
-            font-weight: 600;
-            transition: 0.2s;
-            color: white;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary-custom:hover {
-            background: #1f7a9e;
-            transform: translateY(-2px);
-            color: white;
-        }
-
-        .btn-outline-custom {
-            background: transparent;
-            border: 1px solid #0e4d6e;
-            padding: 12px 28px;
-            border-radius: 40px;
-            font-weight: 600;
-            color: #0e4d6e;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-outline-custom:hover {
-            background: #eef3fc;
-        }
-
-        .section-title {
-            font-size: 1.7rem;
-            font-weight: 700;
-            margin: 2rem 0 1.2rem;
-            border-left: 5px solid #0e4d6e;
-            padding-left: 20px;
-            color: #0a2f44;
-        }
-        .section-title:first-of-type {
-            margin-top: 0;
-        }
-
-        /* Cards & layout */
-        .submission-card, .info-card {
-            background: white;
+        .sr-hero {
+            background: linear-gradient(135deg, #f1f9ff 0%, #ffffff 58%, #fff9e8 100%);
+            border: 1px solid #d9e7f2;
             border-radius: 24px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.05);
-            border: 1px solid #eef2f8;
-            height: 100%;
+            padding: clamp(20px, 3vw, 34px);
+            box-shadow: var(--sr-shadow);
+            margin-bottom: 26px;
+            position: relative;
+            overflow: hidden;
         }
-        .template-box {
-            background: #fff;
-            border-radius: 20px;
-            padding: 1rem 1.2rem;
-            margin: 1rem 0;
-            border-left: 4px solid #0e4d6e;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+
+        .sr-hero::after {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            right: -70px;
+            top: -70px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(15, 94, 136, 0.12), rgba(15, 94, 136, 0));
+            pointer-events: none;
         }
-        .date-row {
+
+        .sr-title {
+            font-size: clamp(1.6rem, 3.8vw, 2.35rem);
+            margin: 0 0 10px;
+            line-height: 1.2;
+            color: var(--sr-ink);
+        }
+
+        .sr-subtitle {
+            margin: 0;
+            max-width: 860px;
+            color: var(--sr-ink-soft);
+            line-height: 1.6;
+        }
+
+        .sr-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sr-btn {
+            border-radius: 999px;
+            padding: 11px 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid transparent;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+
+        .sr-btn-primary {
+            color: #fff;
+            background: linear-gradient(125deg, var(--sr-primary), #1578ab);
+            box-shadow: 0 8px 20px -12px rgba(15, 94, 136, 0.8);
+        }
+
+        .sr-btn-primary:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            background: linear-gradient(125deg, var(--sr-primary-dark), var(--sr-primary));
+        }
+
+        .sr-btn-outline {
+            color: var(--sr-primary);
+            background: rgba(255, 255, 255, 0.95);
+            border-color: #bdd4e4;
+        }
+
+        .sr-btn-outline:hover {
+            color: var(--sr-primary);
+            background: #edf6fd;
+            transform: translateY(-2px);
+        }
+
+        .sr-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: #e8f3fb;
+            border: 1px solid #c7dced;
+            color: #114d6e;
+            font-size: 0.86rem;
+            font-weight: 600;
+        }
+
+        .sr-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 22px;
+        }
+
+        .sr-card {
+            background: var(--sr-panel);
+            border: 1px solid var(--sr-border);
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: var(--sr-shadow);
+            min-height: 100%;
+        }
+
+        .sr-card h2,
+        .sr-card h3 {
+            margin: 0 0 14px;
+            font-size: 1.15rem;
+            color: var(--sr-ink);
+        }
+
+        .sr-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .sr-list li {
+            display: grid;
+            grid-template-columns: 24px 1fr;
+            gap: 10px;
+            align-items: start;
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: #f8fbfe;
+            border: 1px solid #e5eff7;
+        }
+
+        .sr-list i {
+            color: var(--sr-primary);
+            margin-top: 2px;
+        }
+
+        .sr-date-list {
+            display: grid;
+            gap: 4px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .sr-date-list li {
             display: flex;
             justify-content: space-between;
-            border-bottom: 1px solid #e2e8f0;
+            gap: 12px;
             padding: 12px 0;
+            border-bottom: 1px solid #e5edf5;
+            font-size: 0.95rem;
         }
-        .date-row:last-child { border-bottom: none; }
 
-        /* Fee table - clean and responsive */
-        .fee-table {
+        .sr-date-list li:last-child {
+            border-bottom: 0;
+        }
+
+        .sr-date-list strong {
+            color: #124865;
+        }
+
+        .sr-note {
+            margin-top: 12px;
+            color: #556f80;
+            font-size: 0.88rem;
+        }
+
+        .sr-template-list {
+            display: grid;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .sr-template {
+            border: 1px solid #deebf5;
+            border-left: 4px solid var(--sr-primary);
+            border-radius: 12px;
+            padding: 12px 14px;
+            background: #fbfdff;
+        }
+
+        .sr-template p {
+            margin: 6px 0 0;
+            font-size: 0.88rem;
+            color: #587283;
+        }
+
+        .sr-portal {
+            margin-top: 14px;
+            border-radius: 12px;
+            border: 1px solid #cddfec;
+            background: linear-gradient(160deg, #eaf4fb 0%, #f8fcff 100%);
+            padding: 14px;
+        }
+
+        .sr-portal a {
+            color: var(--sr-primary);
+            word-break: break-all;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .sr-section-title {
+            margin: 26px 0 12px;
+            padding-left: 12px;
+            border-left: 4px solid var(--sr-accent);
+            font-size: 1.34rem;
+            color: var(--sr-ink);
+        }
+
+        .sr-table-shell {
+            background: #fff;
+            border: 1px solid #d5e4ef;
+            border-radius: 16px;
+            padding: 10px;
+            box-shadow: var(--sr-shadow);
+            overflow-x: auto;
+        }
+
+        .sr-table {
             width: 100%;
             border-collapse: collapse;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
-            background: white;
+            min-width: 700px;
         }
-        .fee-table th, .fee-table td {
-            border: 1px solid #e2edf7;
-            padding: 18px 20px;
-            vertical-align: middle;
-        }
-        .fee-table th {
-            background: #f8fafc;
-            font-weight: 700;
-            color: #0a2f44;
-            font-size: 1rem;
-        }
-        .fee-table td { background: white; font-weight: 500; }
-        .fee-table tr:hover td { background-color: #fefce8; transition: 0.1s; }
-        .category-badge {
-            background: #eef4ff;
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 0.75rem;
+
+        .sr-table th {
+            background: #0e344b;
+            color: #fff;
+            text-align: left;
+            font-size: 0.92rem;
             font-weight: 600;
-            color: #0e4d6e;
-            display: inline-block;
+            padding: 14px 12px;
+        }
+
+        .sr-table td {
+            padding: 13px 12px;
+            border-bottom: 1px solid #e5edf4;
+            vertical-align: top;
+            background: #fff;
+        }
+
+        .sr-table tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .sr-badge {
             margin-top: 6px;
-        }
-        .table-wrapper {
-            overflow-x: auto;
-            border-radius: 20px;
-            margin: 20px 0 10px;
+            display: inline-block;
+            padding: 3px 9px;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            background: #e8f3fb;
+            color: #145173;
+            border: 1px solid #c9dceb;
         }
 
-        /* Notes card with fresh background (blue-gray elegance) */
-        .notes-card {
-            background: #eef2fa;
-            border-left: 5px solid #1e6f5c;
-            padding: 1.5rem;
-            border-radius: 20px;
-            margin-top: 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        .sr-muted {
+            margin-top: 8px;
+            text-align: right;
+            color: #607a8b;
+            font-size: 0.86rem;
         }
-        .step-box {
-            background: #f8fafc;
-            border-radius: 20px;
-            padding: 20px;
+
+        .sr-steps {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 8px;
+        }
+
+        .sr-step {
+            border-radius: 14px;
+            border: 1px solid #d8e7f2;
+            padding: 16px;
+            background: #fff;
+            box-shadow: var(--sr-shadow);
+        }
+
+        .sr-step i {
+            font-size: 1.5rem;
+            color: var(--sr-primary);
+            margin-bottom: 8px;
+        }
+
+        .sr-step h4 {
+            margin: 0 0 6px;
+            font-size: 1rem;
+            color: var(--sr-ink);
+        }
+
+        .sr-step p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #4f697b;
+        }
+
+        .sr-help {
+            margin-top: 16px;
             text-align: center;
-            transition: transform 0.2s;
-            border: 1px solid #e2edf7;
-            flex: 1;
-            min-width: 180px;
-        }
-        .step-box:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-        }
-        .step-box i {
-            font-size: 2rem;
-            color: #0e4d6e;
-            margin-bottom: 12px;
         }
 
-        .mt-3 { margin-top: 1rem; }
-        .mt-4 { margin-top: 1.5rem; }
-        .mb-3 { margin-bottom: 1rem; }
-        .me-3 { margin-right: 1rem; }
-        .small { font-size: 0.85rem; }
-        .text-muted { color: #4b5563; }
+        .sr-ack {
+            margin-top: 20px;
+            border-radius: 14px;
+            border: 1px solid #bfe0cf;
+            background: #effaf4;
+            padding: 14px;
+            color: #255245;
+            font-size: 0.93rem;
+        }
 
-        @media (max-width: 820px) {
-            .main-content { margin-top: 140px; }
-            .hero-merged h1 { font-size: 1.6rem; }
-            .hero-merged { padding: 1.5rem; }
-            .fee-table th, .fee-table td { padding: 12px 12px; font-size: 0.85rem; }
-            .btn-primary-custom, .btn-outline-custom { margin-bottom: 10px; display: inline-block; }
-            .me-3 { margin-right: 0; margin-bottom: 10px; }
-            .section-title { font-size: 1.5rem; }
+        @media (max-width: 1024px) {
+            .sr-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sr-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .main-content {
+                margin-top: 132px;
+                padding: 0 12px;
+            }
+
+            .sr-date-list li {
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .sr-actions {
+                gap: 10px;
+            }
+
+            .sr-chip {
+                width: 100%;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -236,162 +425,177 @@
 
 
 <main class="main-content">
-    <!-- Hero Section Merged: Submission + Registration overview -->
-    <div class="hero-merged">
-        <h1><i class="fas fa-file-upload"></i> Submission & Registration <span style="color:#0e4d6e;">| V-CIM 2027</span></h1>
-        <p style="font-size: 1.05rem;">Authors are invited to submit original research papers in <strong>VLSI, Communication, Intelligent Machines, and related areas</strong>. All submissions undergo rigorous double-blind peer-review. At least one author per accepted paper must register (early-bird encouraged) and present for possible inclusion in IEEE Xplore. Fees are in INR + 18% GST.</p>
-        <div class="mt-4" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-            <a href="https://cmt3.research.microsoft.com/VCIM2027" target="_blank" class="btn-primary-custom"><i class="fas fa-upload"></i> Submit via CMT</a>
-            <a href="#" class="btn-outline-custom"><i class="fas fa-credit-card"></i> Register Online</a>
-            <span class="deadline-badge"><i class="far fa-calendar-alt"></i> Submission: 15 Nov 2026 | Early Bird: 20 Dec 2026</span>
+    <section class="sr-hero">
+        <h1 class="sr-title"><i class="fas fa-file-upload"></i> Submission & Registration | V-CIM 2027</h1>
+        <p class="sr-subtitle">Authors are invited to submit original research papers in <strong>VLSI, Communication, Intelligent Machines, and related areas</strong>. All submissions are peer-reviewed in a double-blind process. At least one author of each accepted paper must register and present for possible inclusion in IEEE Xplore.</p>
+        <div class="sr-actions">
+            <a href="https://cmt3.research.microsoft.com/VCIM2027" target="_blank" class="sr-btn sr-btn-primary"><i class="fas fa-upload"></i> Submit via CMT</a>
+            <a href="#" class="sr-btn sr-btn-outline"><i class="fas fa-credit-card"></i> Register Online</a>
+            <span class="sr-chip"><i class="far fa-calendar-alt"></i> Submission: 15 Nov 2026 | Early Bird: 20 Dec 2026</span>
         </div>
+    </section>
+
+    <div class="sr-grid">
+        <section class="sr-card">
+            <h2><i class="fas fa-check-circle"></i> Submission Guidelines</h2>
+            <ul class="sr-list">
+                <li><i class="fas fa-file-alt"></i><span><strong>Full paper:</strong> 4-6 pages in IEEE double-column conference format</span></li>
+                <li><i class="fas fa-chart-line"></i><span><strong>Short paper:</strong> Up to 3 pages (poster/presentation only)</span></li>
+                <li><i class="fas fa-search"></i><span><strong>Double-blind review:</strong> Remove author names and affiliations</span></li>
+                <li><i class="fas fa-percent"></i><span><strong>Plagiarism limit:</strong> 15% maximum similarity (iThenticate)</span></li>
+                <li><i class="fas fa-language"></i><span><strong>Language:</strong> English only</span></li>
+            </ul>
+            <p class="sr-note"><strong>At least one author</strong> must register and present (in-person or virtual) for possible inclusion in IEEE Xplore.</p>
+        </section>
+
+        <section class="sr-card">
+            <h2><i class="fas fa-clock"></i> Important Deadlines</h2>
+            <ul class="sr-date-list">
+                <li><strong>Paper Submission Deadline</strong><span>15 November 2026</span></li>
+                <li><strong>Notification of Acceptance</strong><span>5 December 2026</span></li>
+                <li><strong>Early Bird Registration</strong><span>20 December 2026</span></li>
+                <li><strong>Camera-Ready Submission</strong><span>25 December 2026</span></li>
+                <li><strong>Conference Dates</strong><span><strong>7-9 January 2027</strong></span></li>
+            </ul>
+            <p class="sr-note"><i class="fas fa-info-circle"></i> All deadlines are 11:59 PM IST. Late submissions will not be reviewed.</p>
+        </section>
+
+        <section class="sr-card">
+            <h3><i class="fas fa-download"></i> Templates (IEEE Format)</h3>
+            <p>Use the following templates for proceedings format:</p>
+            <div class="sr-template-list">
+                <div class="sr-template">
+                    <a href="#" target="_blank"><strong>Microsoft Word Template</strong> (.docx)</a>
+                    <p>IEEE conference proceedings format</p>
+                </div>
+                <div class="sr-template">
+                    <a href="#" target="_blank"><strong>LaTeX Template</strong> (ZIP)</a>
+                    <p>Includes IEEE style files</p>
+                </div>
+                <div class="sr-template">
+                    <a href="#" target="_blank"><strong>Sample Paper / Formatting Guide</strong></a>
+                    <p>Reference layout for final submission checks</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="sr-card">
+            <h3><i class="fas fa-link"></i> Submission Portal</h3>
+            <p>Submit electronically via Microsoft CMT. Email submissions are not accepted.</p>
+            <div class="sr-portal">
+                <strong>CMT Submission Link:</strong><br>
+                <a href="https://cmt3.research.microsoft.com/VCIM2027" target="_blank">https://cmt3.research.microsoft.com/VCIM2027</a>
+            </div>
+            <p class="sr-note"><i class="fas fa-headset"></i> Technical support: vcim2027@outr.ac.in</p>
+        </section>
     </div>
 
-    <!-- 2-COLUMN: LEFT (Submission guidelines + deadlines) & RIGHT (Templates + CMT) -->
-    <div style="display: flex; gap: 30px; flex-wrap: wrap; margin-bottom: 40px;">
-        <!-- LEFT COLUMN: Submission guidelines & deadlines -->
-        <div style="flex: 1; min-width: 280px;">
-            <div class="submission-card">
-                <h3 class="mb-3"><i class="fas fa-check-circle" style="color:#0e4d6e; margin-right: 10px;"></i> Submission Guidelines</h3>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li class="mb-3"><i class="fas fa-file-alt" style="color:#0e4d6e; width: 24px;"></i> <strong>Full paper:</strong> 4-6 pages in IEEE double-column conference format</li>
-                    <li class="mb-3"><i class="fas fa-chart-line" style="color:#0e4d6e; width: 24px;"></i> <strong>Short paper:</strong> Up to 3 pages (poster/presentation only)</li>
-                    <li class="mb-3"><i class="fas fa-search" style="color:#0e4d6e; width: 24px;"></i> <strong>Double-blind review:</strong> Remove author names/affiliations</li>
-                    <li class="mb-3"><i class="fas fa-percent" style="color:#0e4d6e; width: 24px;"></i> <strong>Plagiarism limit:</strong> 15% maximum similarity (iThenticate)</li>
-                    <li class="mb-3"><i class="fas fa-language" style="color:#0e4d6e; width: 24px;"></i> <strong>Language:</strong> English only</li>
-                </ul>
-                <p class="mt-3"><strong>At least one author</strong> must register and present (in-person/virtual) for possible inclusion in IEEE Xplore.</p>
-            </div>
-            
-            <div class="submission-card mt-4">
-                <h3 class="mb-3"><i class="fas fa-clock" style="color:#0e4d6e; margin-right: 10px;"></i> Important Deadlines</h3>
-                <div class="date-row"><strong>Paper Submission Deadline</strong> <span>15 November 2026</span></div>
-                <div class="date-row"><strong>Notification of Acceptance</strong> <span>5 December 2026</span></div>
-                <div class="date-row"><strong>Early Bird Registration</strong> <span>20 December 2026</span></div>
-                <div class="date-row"><strong>Camera-Ready Submission</strong> <span>25 December 2026</span></div>
-                <div class="date-row"><strong>Conference Dates</strong> <span><strong>7-9 January 2027</strong></span></div>
-                <p class="mt-3 small text-muted"><i class="fas fa-info-circle"></i> All deadlines 11:59 PM IST. Late submissions not reviewed.</p>
-            </div>
-        </div>
+    <h2 class="sr-section-title"><i class="fas fa-gavel"></i> Review Process & Publication Ethics</h2>
+    <section class="sr-card">
+        <p>All papers undergo similarity check followed by double-blind peer review by at least two reviewers. The conference follows COPE guidelines. By submitting, authors confirm originality and that the work is not under review elsewhere.</p>
+        <ul class="sr-list" style="margin-top: 12px;">
+            <li><i class="fas fa-award"></i><span><strong>Best Paper Awards:</strong> Certificates and cash prizes for top papers.</span></li>
+            <li><i class="fas fa-chart-simple"></i><span><strong>IEEE Publication:</strong> Accepted and presented papers will be submitted for possible inclusion in IEEE Xplore.</span></li>
+        </ul>
+    </section>
 
-        <!-- RIGHT COLUMN: Templates + CMT portal info -->
-        <div style="flex: 1; min-width: 280px;">
-            <div class="submission-card">
-                <h3 class="mb-3"><i class="fas fa-download" style="color:#0e4d6e; margin-right: 10px;"></i> Templates (IEEE Format)</h3>
-                <p>Use the following templates for proceedings format:</p>
-                <div class="template-box">
-                    <i class="fab fa-microsoft" style="color:#0e4d6e; margin-right: 8px;"></i> <a href="#" target="_blank"><strong>Microsoft Word Template</strong> (.docx)</a>
-                    <p class="small text-muted mt-1">IEEE conference proceedings format</p>
-                </div>
-                <div class="template-box">
-                    <i class="fas fa-code" style="color:#0e4d6e; margin-right: 8px;"></i> <a href="#" target="_blank"><strong>LaTeX Template</strong> (ZIP)</a>
-                    <p class="small text-muted mt-1">Includes IEEE style files</p>
-                </div>
-                <div class="template-box">
-                    <i class="fas fa-file-pdf" style="color:#0e4d6e; margin-right: 8px;"></i> <a href="#" target="_blank"><strong>Sample Paper / Formatting Guide</strong></a>
-                </div>
-            </div>
-            
-            <div class="submission-card mt-4">
-                <h3 class="mb-3"><i class="fas fa-link" style="color:#0e4d6e; margin-right: 10px;"></i> Submission Portal</h3>
-                <p>Submit electronically via Microsoft CMT. No email submissions.</p>
-                <div style="background: #eef4ff; padding: 15px; border-radius: 16px; margin: 15px 0;">
-                    <i class="fas fa-globe"></i> <strong>CMT Submission Link:</strong><br>
-                    <a href="https://cmt3.research.microsoft.com/VCIM2027" target="_blank" style="color:#0e4d6e; word-break: break-all;">https://cmt3.research.microsoft.com/VCIM2027</a>
-                </div>
-                <p><i class="fas fa-headset"></i> Technical support: vcim2027@outr.ac.in</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Review & Publication Ethics (short section) -->
-    <div class="info-card" style="margin-bottom: 40px;">
-        <h3><i class="fas fa-gavel" style="color:#0e4d6e; margin-right: 10px;"></i> Review Process & Publication Ethics</h3>
-        <p>All papers undergo similarity check followed by double-blind peer review (at least 2 reviewers). Conference follows COPE guidelines. By submitting, authors confirm originality and that work is not under consideration elsewhere.</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 20px;">
-            <div><i class="fas fa-award" style="color:#0e4d6e;"></i> <strong>Best Paper Awards</strong><br><small>Certificates & cash prizes for top papers</small></div>
-            <div><i class="fas fa-chart-simple" style="color:#0e4d6e;"></i> <strong>IEEE Publication</strong><br><small>Accepted and presented papers submitted for possible inclusion in IEEE Xplore</small></div>
-        </div>
-    </div>
-
-    <!-- =============== REGISTRATION SECTION (Merged from registration.html) =============== -->
-    <h2 class="section-title"><i class="fas fa-rupee-sign"></i> Registration Fees (Indian Delegates - INR + 18% GST)</h2>
-    <div class="table-wrapper">
-        <table class="fee-table">
+    <h2 class="sr-section-title"><i class="fas fa-rupee-sign"></i> Registration Fees (Indian Delegates - INR + 18% GST)</h2>
+    <div class="sr-table-shell">
+        <table class="sr-table">
             <thead>
-                <tr><th>Category</th><th>Registration Fee (INR + 18% GST)</th><th>Inclusions / Notes</th></tr>
+                <tr>
+                    <th>Category</th>
+                    <th>Registration Fee (INR + 18% GST)</th>
+                    <th>Inclusions / Notes</th>
+                </tr>
             </thead>
             <tbody>
-                <tr><td><strong>Regular Author (Full Paper)</strong><div class="category-badge">IEEE Proceedings</div></td><td><strong>Rs. 4,000 + GST</strong></td><td>IEEE Xplore submission eligibility, conference kit, lunch, sessions, e-certificate</td></tr>
-                <tr><td><strong>OUTR Faculty / Staff Member</strong><div class="category-badge">Local Organizer Rate</div></td><td><strong>Rs. 3,000 + GST</strong></td><td>Full conference access, proceedings, kit & meals</td></tr>
-                <tr><td><strong>Student Author (Full Paper)</strong><div class="category-badge">Proof of valid ID required</div></td><td><strong>Rs. 3,000 + GST</strong></td><td>Proceedings, kit, lunch, networking access</td></tr>
-                <tr><td><strong>Co-Author / Additional Paper</strong><div class="category-badge">Same paper only</div></td><td><strong>Rs. 2,000 + GST</strong></td><td>Extra proceedings copy & conference materials</td></tr>
-                <tr><td><strong>Listener / Attendee (In-person)</strong><div class="category-badge">Certificates + Lunch + Kit</div></td><td><strong>Rs. 2,000 + GST</strong></td><td>Access to all technical sessions, conference kit, lunch, participation certificate</td></tr>
-                <tr><td><strong>Virtual Participant</strong><div class="category-badge">Online Access</div></td><td><strong>Rs. 1,000 + GST</strong></td><td>Live sessions, e-certificate, online proceedings access (no physical kit)</td></tr>
+                <tr>
+                    <td><strong>Regular Author (Full Paper)</strong><div class="sr-badge">IEEE Proceedings</div></td>
+                    <td><strong>Rs. 4,000 + GST</strong></td>
+                    <td>IEEE Xplore submission eligibility, conference kit, lunch, sessions, e-certificate</td>
+                </tr>
+                <tr>
+                    <td><strong>OUTR Faculty / Staff Member</strong><div class="sr-badge">Local Organizer Rate</div></td>
+                    <td><strong>Rs. 3,000 + GST</strong></td>
+                    <td>Full conference access, proceedings, kit and meals</td>
+                </tr>
+                <tr>
+                    <td><strong>Student Author (Full Paper)</strong><div class="sr-badge">Proof of valid ID required</div></td>
+                    <td><strong>Rs. 3,000 + GST</strong></td>
+                    <td>Proceedings, kit, lunch, networking access</td>
+                </tr>
+                <tr>
+                    <td><strong>Co-Author / Additional Paper</strong><div class="sr-badge">Same paper only</div></td>
+                    <td><strong>Rs. 2,000 + GST</strong></td>
+                    <td>Extra proceedings copy and conference materials</td>
+                </tr>
+                <tr>
+                    <td><strong>Listener / Attendee (In-person)</strong><div class="sr-badge">Certificates + Lunch + Kit</div></td>
+                    <td><strong>Rs. 2,000 + GST</strong></td>
+                    <td>Access to all technical sessions, conference kit, lunch, participation certificate</td>
+                </tr>
+                <tr>
+                    <td><strong>Virtual Participant</strong><div class="sr-badge">Online Access</div></td>
+                    <td><strong>Rs. 1,000 + GST</strong></td>
+                    <td>Live sessions, e-certificate, online proceedings access (no physical kit)</td>
+                </tr>
             </tbody>
         </table>
     </div>
-    <div class="small text-muted" style="margin-top: 8px; text-align: right;"><i class="fas fa-receipt"></i> All prices exclusive of 18% GST as shown. Final invoice includes applicable taxes.</div>
+    <p class="sr-muted"><i class="fas fa-receipt"></i> All prices are exclusive of 18% GST as shown. Final invoice includes applicable taxes.</p>
 
-    <!-- Extra Page Charges + Group Discount + Important Notes row -->
-    <div style="display: flex; gap: 30px; flex-wrap: wrap; margin: 40px 0;">
-        <div style="flex: 1; min-width: 280px;">
-            <div class="info-card">
-                <h4><i class="fas fa-charging-station" style="color:#0e4d6e;"></i> Extra Page Charges</h4>
-                <p>Papers exceeding 6 pages (maximum allowed: 8 pages) will incur extra charges:</p>
-                <ul style="margin-top: 10px; padding-left: 20px;">
-                    <li><strong>Rs. 500 per extra page</strong> (for Indian authors)</li>
-                    <li>Maximum two additional pages allowed.</li>
-                </ul>
-                <hr>
-                <h4><i class="fas fa-users" style="color:#0e4d6e;"></i> Group Registration Benefits</h4>
-                <p>For group registrations (3+ delegates from same institute): <strong>10% discount</strong> on total registration fees. Please contact conference secretariat.</p>
-            </div>
-        </div>
-        <div style="flex: 1; min-width: 280px;">
-            <div class="notes-card">
-                <h4><i class="fas fa-info-circle"></i> Important Notes & Policies</h4>
-                <ul style="margin-top: 10px; padding-left: 20px;">
-                    <li><strong>Mandatory Registration:</strong> At least one author per accepted paper must register under "Regular Author" category and present for possible inclusion in IEEE Xplore.</li>
-                    <li>One registration covers <strong>only one paper</strong> (max 6 pages). Additional papers require separate co-author registration.</li>
-                    <li>Registration includes: access to all technical sessions, conference kit (for in-person attendees), e-certificate, lunch & refreshments.</li>
-                    <li><strong>Cancellation Policy:</strong> No refunds for cancellation after registration completion. Before 31 December 2026, 50% refund (processing charges deducted).</li>
-                    <li>Accommodation: Participants need to arrange their own stay. Limited on-campus guest house available on request.</li>
-                    <li>All fees are in Indian Rupees (INR). 18% GST is additional as per government norms.</li>
-                </ul>
-            </div>
-        </div>
+    <div class="sr-grid">
+        <section class="sr-card">
+            <h3><i class="fas fa-charging-station"></i> Extra Page Charges</h3>
+            <p>Papers exceeding 6 pages (maximum allowed: 8 pages) will incur extra charges:</p>
+            <ul>
+                <li><strong>Rs. 500 per extra page</strong> (for Indian authors)</li>
+                <li>Maximum two additional pages are allowed.</li>
+            </ul>
+            <hr>
+            <h3><i class="fas fa-users"></i> Group Registration Benefits</h3>
+            <p>For group registrations (3 or more delegates from the same institute): <strong>10% discount</strong> on total registration fees. Please contact the conference secretariat.</p>
+        </section>
+
+        <section class="sr-card">
+            <h3><i class="fas fa-info-circle"></i> Important Notes & Policies</h3>
+            <ul>
+                <li><strong>Mandatory Registration:</strong> At least one author per accepted paper must register under the "Regular Author" category and present for possible inclusion in IEEE Xplore.</li>
+                <li>One registration covers <strong>only one paper</strong> (maximum 6 pages). Additional papers require separate co-author registration.</li>
+                <li>Registration includes access to sessions, conference kit (for in-person attendees), e-certificate, lunch and refreshments.</li>
+                <li><strong>Cancellation Policy:</strong> No refunds for cancellation after registration completion. Before 31 December 2026, a 50% refund is available after processing deductions.</li>
+                <li>Accommodation: Participants need to arrange their own stay. Limited on-campus guest house rooms may be available on request.</li>
+                <li>All fees are in Indian Rupees (INR). 18% GST is additional as per government norms.</li>
+            </ul>
+        </section>
     </div>
 
-    <!-- How to Register Steps (from registration.html) -->
-    <div style="margin: 40px 0;">
-        <h2 class="section-title"><i class="fas fa-gavel"></i> How to Register - Simple 3 Steps</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 20px;">
-            <div class="step-box">
-                <i class="fas fa-file-alt"></i>
-                <p><strong>Step 1:</strong> Fill Online Registration Form</p>
-                <span class="small text-muted">Provide author & paper details</span>
-            </div>
-            <div class="step-box">
-                <i class="fas fa-credit-card"></i>
-                <p><strong>Step 2:</strong> Pay Registration Fee</p>
-                <span class="small text-muted">Via NEFT / UPI / Card</span>
-            </div>
-            <div class="step-box">
-                <i class="fas fa-envelope"></i>
-                <p><strong>Step 3:</strong> Upload Payment Proof</p>
-                <span class="small text-muted">Receive confirmation & updates</span>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 35px;">
-            <a href="#" class="btn-primary-custom"><i class="fas fa-arrow-right"></i> Go to Registration Portal</a>
-            <p class="mt-3 small">For any assistance: <i class="fas fa-envelope"></i> <strong>vcim2027@outr.ac.in</strong> | +91-674-2381234 (Conference Secretariat)</p>
-        </div>
+    <h2 class="sr-section-title"><i class="fas fa-list-ol"></i> How to Register - 3 Steps</h2>
+    <div class="sr-steps">
+        <article class="sr-step">
+            <i class="fas fa-file-alt"></i>
+            <h4>Step 1: Fill Online Registration Form</h4>
+            <p>Provide author and paper details.</p>
+        </article>
+        <article class="sr-step">
+            <i class="fas fa-credit-card"></i>
+            <h4>Step 2: Pay Registration Fee</h4>
+            <p>Payment options include NEFT, UPI, and Card.</p>
+        </article>
+        <article class="sr-step">
+            <i class="fas fa-envelope"></i>
+            <h4>Step 3: Upload Payment Proof</h4>
+            <p>Receive confirmation and communication updates.</p>
+        </article>
+    </div>
+    <div class="sr-help">
+        <a href="#" class="sr-btn sr-btn-primary"><i class="fas fa-arrow-right"></i> Go to Registration Portal</a>
+        <p class="sr-note">For assistance: <strong>vcim2027@outr.ac.in</strong> | +91-674-2381234 (Conference Secretariat)</p>
     </div>
 
-    <!-- CMT Acknowledgment (kept from registration) -->
-    <div style="margin-top: 20px; margin-bottom: 20px; padding: 15px 20px; background: #f1f5f9; border-radius: 16px; color: #475569; font-size: 0.85rem;">
-        <i class="fas fa-hand-point-right" style="color:#0e4d6e;"></i> <strong>CMT Acknowledgment:</strong> The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+    <div class="sr-ack">
+        <i class="fas fa-hand-point-right"></i> <strong>CMT Acknowledgment:</strong> The Microsoft CMT service was used for managing the peer-review process for this conference. This service was provided free by Microsoft, including Azure cloud and software support costs.
     </div>
 </main>
 
