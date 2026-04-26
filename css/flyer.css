@@ -1,0 +1,452 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    background: #dfe6ee;
+    color: #132133;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.flyer-shell {
+    min-height: 100vh;
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flyer {
+    width: min(100%, 794px);
+    min-height: 1123px;
+    background:
+        linear-gradient(150deg, rgba(15, 118, 110, 0.12), transparent 32%),
+        linear-gradient(330deg, rgba(244, 169, 54, 0.2), transparent 29%),
+        #ffffff;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
+}
+
+.top-band {
+    height: 92px;
+    padding: 18px 38px;
+    display: grid;
+    grid-template-columns: 112px 1fr 82px;
+    align-items: center;
+    gap: 22px;
+    background: #ffffff;
+    border-bottom: 1px solid #d7e3ec;
+}
+
+.brand-logo {
+    width: 106px;
+    height: auto;
+}
+
+.host-logo {
+    width: 72px;
+    height: auto;
+    justify-self: end;
+}
+
+.host-block {
+    text-align: center;
+    line-height: 1.25;
+}
+
+.host-block span,
+.host-block small {
+    display: block;
+    color: #274e71;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.host-block strong {
+    display: block;
+    color: #102033;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.hero {
+    position: relative;
+    min-height: 352px;
+    color: #ffffff;
+    isolation: isolate;
+}
+
+.hero-photo {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(16, 32, 51, 0.96) 0%, rgba(16, 32, 51, 0.82) 44%, rgba(16, 32, 51, 0.28) 100%),
+        url("../images/slider1.jpg") center / cover no-repeat;
+    z-index: -2;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    right: -96px;
+    bottom: -118px;
+    width: 335px;
+    height: 335px;
+    border: 34px solid rgba(255, 214, 153, 0.45);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.hero-content {
+    width: 67%;
+    padding: 38px 40px 34px;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin: 0 0 18px;
+    padding: 8px 13px;
+    color: #102033;
+    background: #f7c66b;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+h1,
+h2,
+p,
+dl {
+    margin: 0;
+}
+
+h1 {
+    max-width: 560px;
+    font-size: 38px;
+    line-height: 1.08;
+    letter-spacing: 0;
+}
+
+.edition {
+    margin-top: 12px;
+    color: #f7c66b;
+    font-size: 52px;
+    line-height: 1;
+    font-weight: 900;
+}
+
+.date-strip {
+    margin-top: 22px;
+    width: min(100%, 480px);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 18px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    backdrop-filter: blur(5px);
+}
+
+.date-strip strong {
+    font-size: 22px;
+}
+
+.date-strip span {
+    color: #d9e6ee;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.intro-grid,
+.content-grid,
+.bottom-grid {
+    padding-inline: 38px;
+}
+
+.intro-grid {
+    padding-top: 22px;
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: 26px;
+    align-items: stretch;
+}
+
+.intro-copy h2,
+.panel h2,
+.publication h2,
+.contact-card h2 {
+    color: #102033;
+    font-size: 19px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.intro-copy p,
+.publication p,
+.contact-card p {
+    color: #34475b;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.submit-panel {
+    padding: 18px;
+    color: #ffffff;
+    background: #0f766e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.submit-panel span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.submit-panel a {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.35;
+    text-decoration: none;
+    word-break: break-word;
+}
+
+.content-grid {
+    padding-top: 18px;
+    display: grid;
+    grid-template-columns: 1.16fr 0.84fr;
+    gap: 22px;
+}
+
+.panel,
+.publication,
+.contact-card {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid #d7e3ec;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.07);
+}
+
+.panel {
+    padding: 18px;
+}
+
+.tracks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+}
+
+.tracks span,
+.pub-badges span {
+    display: flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 9px 10px;
+    color: #123044;
+    background: #eef7f4;
+    border-left: 4px solid #0f766e;
+    font-size: 12px;
+    font-weight: 750;
+    line-height: 1.25;
+}
+
+.dates-panel dl {
+    display: grid;
+    gap: 8px;
+}
+
+.dates-panel dl div {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: baseline;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #dce7ef;
+}
+
+.dates-panel dl div:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.dates-panel dt {
+    color: #4c6074;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.dates-panel dd {
+    margin: 0;
+    color: #102033;
+    font-size: 13px;
+    font-weight: 850;
+    text-align: right;
+}
+
+.bottom-grid {
+    padding-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: 22px;
+}
+
+.publication,
+.contact-card {
+    padding: 18px;
+}
+
+.pub-badges {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.pub-badges span {
+    min-height: 36px;
+    justify-content: center;
+    text-align: center;
+    background: #fff7e6;
+    border-left-color: #d89122;
+}
+
+.contact-card {
+    background: #102033;
+}
+
+.contact-card h2,
+.contact-card p {
+    color: #ffffff;
+}
+
+.contact-card p {
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.contact-card .venue {
+    color: #f7c66b;
+    font-weight: 750;
+}
+
+.flyer-footer {
+    min-height: 54px;
+    margin-top: 18px;
+    padding: 16px 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #063a4f;
+    background: #27e7f5;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+@media (max-width: 760px) {
+    .flyer-shell {
+        padding: 0;
+    }
+
+    .flyer {
+        width: 100%;
+        min-height: 0;
+        box-shadow: none;
+    }
+
+    .top-band,
+    .intro-grid,
+    .content-grid,
+    .bottom-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .top-band {
+        height: auto;
+        padding: 18px;
+        text-align: center;
+    }
+
+    .brand-logo,
+    .host-logo {
+        justify-self: center;
+    }
+
+    .hero-content {
+        width: 100%;
+        padding: 36px 22px 44px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .edition {
+        font-size: 42px;
+    }
+
+    .date-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-grid,
+    .content-grid,
+    .bottom-grid {
+        padding-inline: 18px;
+    }
+
+    .tracks,
+    .pub-badges {
+        grid-template-columns: 1fr;
+    }
+
+    .flyer-footer { position: static; text-align: center; }
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+@media print {
+    body {
+        background: #ffffff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .flyer-shell {
+        display: block;
+        min-height: 0;
+        padding: 0;
+    }
+
+    .flyer {
+        width: 210mm;
+        min-height: 297mm;
+        box-shadow: none;
+    }
+}
